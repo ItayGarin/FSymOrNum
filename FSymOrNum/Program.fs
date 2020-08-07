@@ -1,8 +1,8 @@
-﻿// Learn more about F# at http://fsharp.org
-
-open System
+﻿open FSymOrNum.FreqGetter
 
 [<EntryPoint>]
 let main argv =
-    printfn "Hello World from F#!"
+    "Hello World from F#!"
+    |> getFreq 
+    |> printfn "%A"
     0 // return an integer exit code

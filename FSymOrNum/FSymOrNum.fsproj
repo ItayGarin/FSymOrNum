@@ -4,7 +4,14 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Glob.fs" />
     <Compile Include="FreqGetter.fs" />
+    <Compile Include="Print.fs" />
     <Compile Include="Program.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="FSharpPlus" Version="1.1.3" />
+    <PackageReference Include="FSharpx.Collections" Version="2.1.3" />
+    <PackageReference Include="Microsoft.Extensions.FileSystemGlobbing" Version="3.1.6" />
   </ItemGroup>
 </Project>

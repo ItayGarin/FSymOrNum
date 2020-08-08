@@ -15,9 +15,10 @@ let getFreq seq =
     |> Seq.fold incMapEntry Map.empty
 
 let getFileFreq path =
-    path
-    |> File.ReadAllText
-    |> getFreq 
+    async {
+        let! text = File.ReadAllTextAsync path |> Async.AwaitTask
+        return getFreq text
+    }
 
 let mergeFreqs maps =
     let folder = Map.unionWith (+) 
@@ -26,4 +27,6 @@ let mergeFreqs maps =
 let getFilesFreq paths =
     paths
     |> Seq.map getFileFreq
+    |> Async.Parallel
+    |> Async.RunSynchronously
     |> mergeFreqs
